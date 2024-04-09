@@ -365,7 +365,7 @@
 
                 <div class="pt-1 pt-0 obj-flex">
                     <div class="avatar avatar-xl position-relative">
-                        <img src="{{ asset('assets/img/jason-statham.jpg') }}" alt="profile_image"
+                        <img src="{{ asset('uploads/' . Auth::user()->img) }}" alt="profile_image"
                             class="w-100 border-radius-lg shadow-sm">
                     </div>
                     <div class="text-end pt-1">

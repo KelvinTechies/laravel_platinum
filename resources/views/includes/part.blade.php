@@ -28,7 +28,7 @@
 
               <div class="text-en pt-1 obj-flex">
                   <div class="avatar avatar-xl position-relative">
-                      <img src="./assets/img/jason-statham.jpg" alt="profile_image"
+                      <img src="{{ asset('uploads/' . Auth::user()->img) }}" alt="profile_image"
                           class="w-100 border-radius-lg shadow-sm">
                   </div>
 
