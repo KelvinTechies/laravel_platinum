@@ -45,11 +45,14 @@ class AuthController extends Controller
 
 
         if ($request->hasFile('myInput') && $request->hasFile('doc')) {
-            $imgName = time() . '-' . $request->file('myInput')->getClientOriginalName();
-            $request->file('myInput')->store('uploads');
 
-            $imgName2 = time() . '-' . $request->file('doc')->getClientOriginalName();
-            $request->file('doc')->store('uploads');
+            $file = $request->file('myInput');
+            $imagename = time() . '-' . $file->getClientOriginalName();
+            $file->move(\public_path('uploads'), $imagename);
+
+            $fileII = $request->file('doc');
+            $imagename2 = time() . '-' . $fileII->getClientOriginalName();
+            $fileII->move(\public_path('uploads'), $imagename2);
             User::create([
                 'name' => $validatedData['fname'],
                 'email' => $validatedData['email'],
@@ -66,8 +69,8 @@ class AuthController extends Controller
                 'sos' => $validatedData['sos'],
                 'gender' => $validatedData['gender'],
                 'acct_type' => $validatedData['acct_type'],
-                'img' => $imgName,
-                'doc' => $imgName2,
+                'img' => $imagename,
+                'doc' => $imagename2,
                 'acct_num' => $account_no,
             ]);
             return redirect('/sign-in');

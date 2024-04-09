@@ -90,7 +90,8 @@
 
                 <div class="col-lg-4 mb-">
                     <div class="profile-img position-relative">
-                        <img src="./assets/img/jason-statham.jpg" alt="profile_image" class="border-radius-lg shadow-sm">
+                        <img width="400" src="{{ asset('uploads/' . Auth::user()->img) }}" alt="profile_image"
+                            class="border-radius-lg shadow-sm">
                     </div>
 
                     <div>
